@@ -7,7 +7,7 @@ import { Album } from './album.model';
     <div class="container">
       <h1>Angular Music Store</h1>
       <ul>
-        <li> {{ album.title }} </li>
+        <li *ngFor="#album of albums"> {{ album.title }} </li>
       </ul>
     </div>
   `
