@@ -6,9 +6,21 @@ import { Album } from './album.model';
   template: `
     <div class="container">
       <h1>Angular Music Store</h1>
-      <ul>
-        <li *ngFor="#album of albums"> {{ album.title }} </li>
-      </ul>
+      <h3>Album List</h3>
+      <div class="row" *ngFor="#album of albums">
+        <div class='col-sm-3'>
+          {{ album.title }}
+        </div>
+        <div class='col-sm-3'>
+          {{ album.artist }}
+        </div>
+        <div class='col-sm-3'>
+          {{ album.genre }}
+        </div>
+        <div class='col-sm-3'>
+          {{ album.price }}
+        </div>
+      </div>
     </div>
   `
 })
@@ -16,10 +28,10 @@ export class AppComponent{
   public albums: Album[];
   constructor(){
     this.albums = [
-      new Album('Album One', 'Eddie Murphy', 'Comedy', 10),
-      new Album('Album Two', 'Jane from Spain', 'Euro-pop', 6),
-      new Album('Album Three', 'Luciano Pavarotti', 'Classical', 12),
-      new Album('Album Four', 'Lucia Popp', 'Classical', 7)
+      new Album('Album One', 'Eddie Murphy', 'Comedy', '10.00'),
+      new Album('Album Two', 'Jane from Spain', 'Euro-pop', '6.99'),
+      new Album('Album Three', 'Luciano Pavarotti', 'Classical', '12.00'),
+      new Album('Album Four', 'Lucia Popp', 'Classical', '7.05')
     ]
   }
 

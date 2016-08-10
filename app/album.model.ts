@@ -3,6 +3,6 @@ export class Album {
     public title: string,
     public artist: string,
     public genre: string,
-    public price: number){
+    public price: string){
   }
 }
