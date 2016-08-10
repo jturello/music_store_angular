@@ -7,7 +7,7 @@ import { Album } from './album.model';
     <div class="container">
       <h1>Angular Music Store</h1>
       <h3>Album List</h3>
-      <div class="row" *ngFor="#album of albums">
+      <div class="row" *ngFor="#album of albums" (click)="onClick(album)">
         <div class='col-sm-3'>
           {{ album.title }}
         </div>
@@ -22,6 +22,7 @@ import { Album } from './album.model';
         </div>
       </div>
     </div>
+    <hr>
   `
 })
 export class AppComponent{
@@ -33,6 +34,10 @@ export class AppComponent{
       new Album('Album Three', 'Luciano Pavarotti', 'Classical', '12.00'),
       new Album('Album Four', 'Lucia Popp', 'Classical', '7.05')
     ]
+  }
+
+  onClick(clickedAlbum: Album): void {
+    console.log(clickedAlbum);
   }
 
 }

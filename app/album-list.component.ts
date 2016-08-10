@@ -4,11 +4,11 @@ import { Album } from './album.model';
 @Component({
   selector: 'album-list',
   template: `
-  <h1>Album List, Baby!</h1>
+  <h1>Album List, Baby...</h1>
   `
 
 })
 
 export class AlbumListComponent {
-  
+
 }
