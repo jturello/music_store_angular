@@ -7,7 +7,10 @@ import { Album } from './album.model';
   outputs: ['onAlbumClicked'],
   template: `
   <h3>Album List</h3>
-  <div class="row" *ngFor="#currentAlbum of albumList" (click)="albumClicked(currentAlbum)">
+  <div class="row"
+    *ngFor="#currentAlbum of albumList"
+    (click)="albumClicked(currentAlbum)"
+    [class.selected]="currentAlbum === selectedAlbum">
     <div class='col-sm-3'>
       {{ currentAlbum.title }}
     </div>
@@ -27,11 +30,13 @@ import { Album } from './album.model';
 export class AlbumListComponent {
   public albumList: Album[];
   public onAlbumClicked: EventEmitter<Album>;
+  public selectedAlbum: Album;
   constructor() {
     this.onAlbumClicked = new EventEmitter();
   }
   albumClicked(clickedAlbum: Album): void {
     console.log('child', clickedAlbum);
+    this.selectedAlbum = clickedAlbum;
     this.onAlbumClicked.emit(clickedAlbum);
   }
 
