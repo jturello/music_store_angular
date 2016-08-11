@@ -1,26 +1,14 @@
 import { Component } from 'angular2/core';
 import { Album } from './album.model';
+import { AlbumListComponent } from './album-list.component';
 
 @Component({
   selector: 'my-app',
+  directives: [AlbumListComponent],
   template: `
     <div class="container">
       <h1>Angular Music Store</h1>
-      <h3>Album List</h3>
-      <div class="row" *ngFor="#album of albums" (click)="onClick(album)">
-        <div class='col-sm-3'>
-          {{ album.title }}
-        </div>
-        <div class='col-sm-3'>
-          {{ album.artist }}
-        </div>
-        <div class='col-sm-3'>
-          {{ album.genre }}
-        </div>
-        <div class='col-sm-3'>
-          {{ album.price }}
-        </div>
-      </div>
+      <album-list [albumList]="albums"></album-list>
     </div>
     <hr>
   `
@@ -36,7 +24,7 @@ export class AppComponent{
     ]
   }
 
-  onClick(clickedAlbum: Album): void {
+  albumSelected(clickedAlbum: Album): void {
     console.log(clickedAlbum);
   }
 
