@@ -8,7 +8,10 @@ import { AlbumListComponent } from './album-list.component';
   template: `
     <div class="container">
       <h1>Angular Music Store</h1>
-      <album-list [albumList]="albums"></album-list>
+      <album-list
+        [albumList]="albums"
+        (onAlbumClicked)="albumSelected($event)">
+        </album-list>
     </div>
     <hr>
   `
@@ -25,7 +28,6 @@ export class AppComponent{
   }
 
   albumSelected(clickedAlbum: Album): void {
-    console.log(clickedAlbum);
+    console.log('parent', clickedAlbum);
   }
-
 }

@@ -4,6 +4,7 @@ import { Album } from './album.model';
 @Component({
   selector: 'album-list',
   inputs: ['albumList'],
+  outputs: ['onAlbumClicked'],
   template: `
   <h3>Album List</h3>
   <div class="row" *ngFor="#currentAlbum of albumList" (click)="albumClicked(currentAlbum)">
@@ -25,8 +26,13 @@ import { Album } from './album.model';
 
 export class AlbumListComponent {
   public albumList: Album[];
+  public onAlbumClicked: EventEmitter<Album>;
+  constructor() {
+    this.onAlbumClicked = new EventEmitter();
+  }
   albumClicked(clickedAlbum: Album): void {
     console.log('child', clickedAlbum);
+    this.onAlbumClicked.emit(clickedAlbum);
   }
 
 }
